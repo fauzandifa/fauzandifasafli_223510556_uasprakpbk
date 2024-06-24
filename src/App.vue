@@ -1,17 +1,17 @@
 <template>
   <q-layout view="hHh lpR fFf">
     <!-- Header Section -->
-    <q-header elevated class="bg-primary text-black" height-hint="98">
+    <q-header elevated class="custom-header" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
-          <q-avatar>
+          <q-avatar size="50px" class="custom-avatar">
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-black.svg">
           </q-avatar>
-          UAS PBK :)
+          <span class="custom-title">UAS PBK :)</span>
         </q-toolbar-title>
         <!-- Dropdown Menu -->
         <div class="q-pa-md">
-          <q-btn-dropdown color="white text-black" label="Dropdown Button">
+          <q-btn-dropdown class="custom-dropdown-btn" color="white text-black" label="rincian bagian tugas">
             <q-list>
               <q-item clickable v-close-popup @click="onItemClick('tugas1')">
                 <q-item-section>
@@ -58,7 +58,7 @@
           v-model="searchQuery"
           placeholder="Cari kota..."
           @keyup.enter="searchWeather"
-          class="q-ml-md"
+          class="custom-search-input q-ml-md"
           style="max-width: 300px;"
         >
           <template v-slot:append>
@@ -117,5 +117,77 @@ export default {
 </script>
 
 <style>
-/* Add your custom styles here */
+
+.custom-header {
+  background-color: #1e88e5;
+  background-image: url('');
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.custom-avatar img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.custom-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  margin-left: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.custom-dropdown-btn {
+  border-radius: 10px;
+  background-color: #0d47a1;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+.custom-dropdown-btn:hover {
+  background-color: #1565c0;
+}
+
+.q-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.custom-search-input {
+  border-radius: 30px;
+  background-color: #e3f2fd;
+  border: 1px solid #bbdefb;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-search-input input {
+  color: #0d47a1;
+}
+
+.custom-search-input .q-icon {
+  color: #1e88e5;
+}
+
+.q-page-container {
+  background-image: url('https://i.pinimg.com/564x/1b/57/f9/1b57f9f7028dd0d6db420ef4d684cc9f.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f5f5f5;
+  padding: 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: #424242;
+}
+
+.q-toolbar-title {
+  display: flex;
+  align-items: center;
+}
+
+.q-btn-dropdown .q-btn--outline {
+  border: none;
+}
+
+.q-btn-dropdown .q-btn--outline.q-btn--dropdown {
+  border: none;
+}
 </style>
+
