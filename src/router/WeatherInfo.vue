@@ -5,6 +5,7 @@
         <div class="text-h6 city-name">{{ city }}</div>
         <div class="text-subtitle1 temperature">Suhu: {{ weather.temp }} °C</div>
         <div class="text-subtitle2 weather-description">Cuaca: {{ weather.description }}</div>
+        <router-link :to="{ name: 'Home' }">Kembali ke Beranda</router-link>
       </q-card-section>
     </q-card>
     <q-card v-else class="loading-card">
@@ -80,46 +81,55 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .weather-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full height of the viewport */ /* Light background color */
+  height: 100vh; /* Menyesuaikan tinggi sesuai kebutuhan */
 }
 
 .weather-card, .loading-card {
-  width: 90%; /* Adjust width as necessary */
-  max-width: 400px; /* Maximum width to avoid being too large */
-  margin: 0 auto; /* Center horizontally */
-  background-color: #e3f2fd;
-  border: 1px solid #90caf9;
-  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.weather-card {
+  margin: 20px;
+  padding: 20px;
+}
+
+.loading-card {
   text-align: center;
   padding: 20px;
 }
 
 .city-name {
-  font-size: 1.6rem;
-  color: #0d47a1;
-  margin-bottom: 10px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .temperature {
-  font-size: 1.4rem;
-  color: #1976d2;
+  margin-bottom: 5px;
 }
 
 .weather-description {
-  font-size: 1.2rem;
-  color: #1e88e5;
-  font-style: italic;
+  margin-bottom: 15px;
 }
 
 .loading-message {
-  font-size: 1.4rem;
-  color: #ff7043;
+  font-style: italic;
+  color: #888;
+}
+
+.router-link {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: #03a9f4;
+  text-decoration: none;
 }
 </style>
